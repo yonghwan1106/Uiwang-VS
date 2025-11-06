@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import ReactMarkdown from "react-markdown"
 
 const SAMPLE_ISSUES = [
   {
@@ -189,13 +190,22 @@ export default function VSGenerator() {
           생성된 아이디어
         </h3>
         {results ? (
-          <div className="mt-4 whitespace-pre-wrap text-sm text-gray-700">
-            {results}
+          <div className="mt-4 prose prose-sm max-w-none">
+            <ReactMarkdown
+              components={{
+                h1: (props) => <h1 className="text-2xl font-bold mt-6 mb-4 text-gray-900" {...props} />,
+                h2: (props) => <h2 className="text-xl font-bold mt-5 mb-3 text-gray-900" {...props} />,
+                h3: (props) => <h3 className="text-lg font-semibold mt-4 mb-2 text-gray-900" {...props} />,
+                p: (props) => <p className="mb-3 text-gray-700 leading-relaxed" {...props} />,
+                ul: (props) => <ul className="list-disc pl-6 mb-3 space-y-1" {...props} />,
+                ol: (props) => <ol className="list-decimal pl-6 mb-3 space-y-1" {...props} />,
+                li: (props) => <li className="text-gray-700" {...props} />,
+                strong: (props) => <strong className="font-semibold text-gray-900" {...props} />,
+              }}
+            >
+              {results}
+            </ReactMarkdown>
           </div>
-        ) : (
-          <p className="mt-4 text-sm text-gray-500">
-            위 폼을 작성하고 '아이디어 생성하기' 버튼을 클릭하세요.
-          </p>
         )}
       </div>
     </div>
