@@ -3,14 +3,20 @@ import { google } from "googleapis"
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 export async function getGoogleSheetsClient() {
-  const auth = new google.auth.JWT(
-    process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-    undefined,
-    process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-    SCOPES
-  )
+  let privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY || ""
+  privateKey = privateKey.replace(/^"/, '').replace(/"$/, '')
+  privateKey = privateKey.replace(/\n/g, "\n")
 
-  const sheets = google.sheets({ version: "v4", auth })
+  const auth = new google.auth.GoogleAuth({
+    credentials: {
+      client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+      private_key: privateKey,
+    },
+    scopes: SCOPES,
+  })
+
+  const authClient = await auth.getClient()
+  const sheets = google.sheets({ version: "v4", auth: authClient })
   return sheets
 }
 
@@ -27,9 +33,7 @@ export interface IdeaRecord {
 export async function appendIdeaToSheet(idea: Omit<IdeaRecord, "id">) {
   const sheets = await getGoogleSheetsClient()
   const spreadsheetId = process.env.GOOGLE_SHEET_ID
-
-  const timestamp = new Date().toISOString()
-  const id = `IDEA-${Date.now()}`
+  const id = "IDEA-" + Date.now().toString()
 
   const values = [
     [
@@ -75,7 +79,6 @@ export async function getIdeasFromSheet() {
       return []
     }
 
-    // 첫 번째 행은 헤더, 나머지는 데이터
     const [headers, ...dataRows] = rows
 
     return dataRows.map((row) => ({
