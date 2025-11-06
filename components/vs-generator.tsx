@@ -22,6 +22,7 @@ export default function VSGenerator() {
   const [issue, setIssue] = useState("")
   const [creativityLevel, setCreativityLevel] = useState(0.1)
   const [isGenerating, setIsGenerating] = useState(false)
+  const [isSaving, setIsSaving] = useState(false)
   const [results, setResults] = useState<string>("")
 
   const handleSampleClick = (sampleContent: string) => {
@@ -70,6 +71,49 @@ export default function VSGenerator() {
       alert("아이디어 생성 중 오류가 발생했습니다.")
     } finally {
       setIsGenerating(false)
+    }
+  }
+
+  const handleSaveIdea = async () => {
+    if (!results.trim()) {
+      alert("저장할 아이디어가 없습니다.")
+      return
+    }
+
+    if (!issue.trim()) {
+      alert("원본 현안 정보가 없습니다.")
+      return
+    }
+
+    setIsSaving(true)
+
+    try {
+      const response = await fetch("/api/archive", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          원본현안: issue,
+          VS아이디어: results,
+          확률: creativityLevel.toString(),
+          키워드: "",
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to save idea")
+      }
+
+      const data = await response.json()
+      if (data.success) {
+        alert("아이디어가 성공적으로 저장되었습니다!")
+      }
+    } catch (error) {
+      console.error("Error saving idea:", error)
+      alert("아이디어 저장 중 오류가 발생했습니다.")
+    } finally {
+      setIsSaving(false)
     }
   }
 
@@ -186,10 +230,21 @@ export default function VSGenerator() {
       </div>
 
       <div className="rounded-lg bg-white p-6 shadow">
-        <h3 className="text-lg font-semibold text-gray-900">
-          생성된 아이디어
-        </h3>
-        {results ? (
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-semibold text-gray-900">
+            생성된 아이디어
+          </h3>
+          {results && (
+            <button
+              onClick={handleSaveIdea}
+              disabled={isSaving}
+              className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 disabled:bg-gray-400"
+            >
+              {isSaving ? "저장 중..." : "아이디어 저장"}
+            </button>
+          )}
+        </div>
+        {results && (
           <div className="mt-4 prose prose-sm max-w-none">
             <ReactMarkdown
               components={{
