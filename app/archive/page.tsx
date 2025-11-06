@@ -1,8 +1,8 @@
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
-import VSGenerator from "@/components/vs-generator"
+import ArchiveList from "@/components/archive-list"
 
-export default async function Home() {
+export default async function ArchivePage() {
   const session = await auth()
 
   if (!session) {
@@ -28,13 +28,13 @@ export default async function Home() {
               <div className="ml-6 flex space-x-4">
                 <a
                   href="/"
-                  className="inline-flex items-center border-b-2 border-blue-600 px-3 py-2 text-sm font-medium text-blue-600"
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
                 >
                   생성기
                 </a>
                 <a
                   href="/archive"
-                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+                  className="inline-flex items-center border-b-2 border-blue-600 px-3 py-2 text-sm font-medium text-blue-600"
                 >
                   아카이브
                 </a>
@@ -57,42 +57,21 @@ export default async function Home() {
       <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
           <div className="mb-4 flex items-center justify-center">
-            <div className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 p-3 shadow-lg">
+            <div className="rounded-full bg-gradient-to-r from-green-600 to-emerald-600 p-3 shadow-lg">
               <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
               </svg>
             </div>
           </div>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-3">
-            VS 프롬프트 생성기
+            아이디어 아카이브
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            <span className="font-semibold text-blue-600">Verbal Sampling</span> 기법을 활용하여
-            창의적이고 실현 가능한 정책 아이디어를 생성합니다
+            저장된 모든 VS 아이디어를 확인하고 관리할 수 있습니다
           </p>
-          <div className="mt-4 flex items-center justify-center gap-6 text-sm text-gray-500">
-            <div className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>AI 기반 생성</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              <span>창의성 조절 가능</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-              </svg>
-              <span>아카이브 저장</span>
-            </div>
-          </div>
         </div>
 
-        <VSGenerator />
+        <ArchiveList />
       </main>
     </div>
   )
