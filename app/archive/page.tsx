@@ -68,7 +68,7 @@ export default async function ArchivePage() {
       <main className="mx-auto max-w-7xl px-4 py-6 sm:py-10 sm:px-6 lg:px-8">
         <div className="mb-6 sm:mb-10 text-center">
           <div className="mb-3 sm:mb-4 flex items-center justify-center">
-            <div className="rounded-full bg-gradient-to-r from-green-600 to-emerald-600 p-2 sm:p-3 shadow-lg">
+            <div className="rounded-full bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 p-3 sm:p-4 shadow-2xl animate-pulse">
               <svg className="h-6 w-6 sm:h-8 sm:w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
               </svg>

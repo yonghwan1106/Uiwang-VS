@@ -6,17 +6,14 @@ import ReactMarkdown from "react-markdown"
 const SAMPLE_ISSUES = [
   {
     title: "불법 주정차 해결",
-    icon: "🚗",
     content: "의왕시의 고질적 문제인 불법 주정차를 효과적으로 해결할 수 있는 창의적이고 실현 가능한 방안을 제시해주세요. 기존의 단속 중심 방식이 아닌 새로운 접근이 필요합니다."
   },
   {
     title: "청년 일자리 창출",
-    icon: "💼",
     content: "의왕시 청년들을 위한 양질의 일자리를 창출하고, 지역 내 정착을 유도할 수 있는 혁신적인 정책을 제안해주세요. ITS 인프라 등 의왕시의 강점을 활용한 방안을 포함해주세요."
   },
   {
     title: "고령자 복지 서비스",
-    icon: "🏥",
     content: "증가하는 고령 인구를 위한 차별화된 복지 서비스를 제안해주세요. 기존 서비스와 중복되지 않으면서도 실질적인 도움이 되는 창의적인 아이디어가 필요합니다."
   }
 ]
@@ -122,7 +119,7 @@ export default function VSGenerator() {
 
   return (
     <div className="mx-auto max-w-7xl space-y-4 sm:space-y-8">
-      <div className="rounded-3xl bg-white p-6 sm:p-10 shadow-2xl border border-gray-100 hover:shadow-3xl transition-all duration-300">
+      <div className="rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 p-4 sm:p-8 shadow-lg border border-blue-100">
         <div className="space-y-4 sm:space-y-6">
           <div>
             <div className="mb-3 sm:mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
@@ -145,9 +142,9 @@ export default function VSGenerator() {
                 <button
                   key={index}
                   onClick={() => handleSampleClick(sample.content)}
-                  className="flex-1 rounded-xl border-2 border-indigo-200 bg-gradient-to-br from-white to-indigo-50/30 px-4 sm:px-5 py-4 sm:py-5 text-sm sm:text-base font-bold text-indigo-700 shadow-lg transition-all duration-300 hover:border-indigo-400 hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-95"
+                  className="flex-1 rounded-lg border-2 border-blue-200 bg-white px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-blue-700 shadow-sm transition-all hover:border-blue-400 hover:bg-blue-50 hover:shadow-md active:scale-95"
                 >
-                  <div className="flex items-center justify-center gap-2"><span className="text-2xl">{sample.icon}</span><span>{sample.title}</span></div>
+                  {sample.title}
                 </button>
               ))}
             </div>
@@ -157,7 +154,7 @@ export default function VSGenerator() {
               rows={5}
               value={issue}
               onChange={(e) => setIssue(e.target.value)}
-              className="block w-full rounded-2xl border-2 border-gray-300 bg-gradient-to-br from-gray-50 to-white px-5 sm:px-6 py-4 sm:py-5 text-base sm:text-lg text-gray-800 shadow-lg transition-all focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:shadow-2xl"
+              className="block w-full rounded-lg border-2 border-gray-300 bg-white px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-gray-800 shadow-sm transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
               placeholder="해결하고자 하는 정책 현안을 자세히 입력하세요..."
             />
           </div>
@@ -176,7 +173,7 @@ export default function VSGenerator() {
               💡 값이 낮을수록 더 창의적이지만 실현 가능성이 낮은 아이디어를 생성합니다
             </p>
 
-            <div className="mt-4 sm:mt-5 space-y-4 sm:space-y-5 bg-white/60 backdrop-blur-sm p-5 rounded-xl border border-purple-200">
+            <div className="mt-3 sm:mt-4 space-y-3 sm:space-y-4">
               <input
                 type="range"
                 min="0.01"
@@ -251,7 +248,7 @@ export default function VSGenerator() {
           <button
             onClick={handleGenerate}
             disabled={isGenerating}
-            className="group w-full rounded-2xl bg-gradient-to-r from-violet-600 via-blue-600 to-indigo-600 px-6 sm:px-8 py-5 sm:py-6 text-lg sm:text-xl font-extrabold text-white shadow-2xl transition-all hover:shadow-3xl hover:scale-[1.02] active:scale-[0.97] disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed"
+            className="group w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 hover:shadow-xl active:scale-[0.98] disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed"
           >
             <span className="flex items-center justify-center">
               {isGenerating ? (
@@ -275,9 +272,9 @@ export default function VSGenerator() {
         </div>
       </div>
 
-      <div className="rounded-3xl bg-white p-6 sm:p-10 shadow-2xl border border-gray-100">
+      <div className="rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 p-4 sm:p-8 shadow-lg border border-green-100">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-4 sm:mb-6">
-          <h3 className="flex items-center text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          <h3 className="flex items-center text-lg sm:text-xl font-bold text-gray-900">
             <svg className="mr-2 h-5 w-5 sm:h-6 sm:w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -300,7 +297,7 @@ export default function VSGenerator() {
           <div className="rounded-lg bg-white p-4 sm:p-6 shadow-sm border border-green-200">
             <ReactMarkdown
               components={{
-                h1: (props) => <h1 className="text-3xl sm:text-4xl font-extrabold mt-6 sm:mt-8 mb-4 sm:mb-5 text-gray-900 border-b-4 border-emerald-300 pb-3" {...props} />,
+                h1: (props) => <h1 className="text-xl sm:text-2xl font-bold mt-4 sm:mt-6 mb-3 sm:mb-4 text-gray-900 border-b-2 border-green-200 pb-2" {...props} />,
                 h2: (props) => <h2 className="text-lg sm:text-xl font-bold mt-4 sm:mt-5 mb-2 sm:mb-3 text-gray-900" {...props} />,
                 h3: (props) => <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 mb-2 text-gray-800" {...props} />,
                 p: (props) => <p className="mb-3 text-sm sm:text-base text-gray-700 leading-relaxed" {...props} />,

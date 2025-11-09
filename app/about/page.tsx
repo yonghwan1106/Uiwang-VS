@@ -75,8 +75,8 @@ export default async function AboutPage() {
         </div>
 
         <div className="space-y-6 sm:space-y-8">
-          <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">프로젝트 목적</h3>
+          <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-10 border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <h3 className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">프로젝트 목적</h3>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
               의왕시의 다양한 정책 과제에 대해 창의적이고 혁신적인 해결책을 도출하기 위한 도구입니다. 
               AI와 Verbal Sampling 기법을 결합하여 공무원들이 더 쉽고 빠르게 정책 아이디어를 발굴하고 
@@ -84,15 +84,15 @@ export default async function AboutPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Verbal Sampling (VS) 기법</h3>
+          <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-10 border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <h3 className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">Verbal Sampling (VS) 기법</h3>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
               Verbal Sampling은 다양한 언어적 요소를 샘플링하고 조합하여 새로운 아이디어를 창출하는 
               창의적 사고 기법입니다.
             </p>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
+          <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-10 border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">주요 기능</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-gray-50 rounded-lg p-4">
