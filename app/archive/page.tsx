@@ -38,6 +38,12 @@ export default async function ArchivePage() {
                 >
                   아카이브
                 </a>
+                <a
+                  href="/about"
+                  className="inline-flex items-center px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-gray-700 hover:text-blue-600"
+                >
+                  소개
+                </a>
               </div>
             </div>
             <div className="flex items-center gap-2 sm:gap-3">

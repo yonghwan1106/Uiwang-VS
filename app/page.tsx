@@ -38,6 +38,12 @@ export default async function Home() {
                 >
                   아카이브
                 </a>
+                <a
+                  href="/about"
+                  className="inline-flex items-center px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-gray-700 hover:text-blue-600"
+                >
+                  소개
+                </a>
               </div>
             </div>
             <div className="flex items-center gap-2 sm:gap-3">
@@ -75,6 +81,26 @@ export default async function Home() {
             <span className="font-semibold text-blue-600">Verbal Sampling</span> 기법을 활용하여
             창의적이고 실현 가능한 정책 아이디어를 생성합니다
           </p>
+          
+          <div className="mt-4 sm:mt-6 mx-auto max-w-3xl px-4">
+            <div className="rounded-lg bg-blue-50 border border-blue-200 p-4 sm:p-6">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0">
+                  <svg className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h3 className="text-sm sm:text-base font-semibold text-blue-900 mb-1">VS 기법이란?</h3>
+                  <p className="text-xs sm:text-sm text-blue-800 leading-relaxed">
+                    Verbal Sampling(VS)은 다양한 언어적 단서를 샘플링하여 새로운 아이디어를 창출하는 기법입니다. 
+                    주어진 키워드들을 조합하고 재구성하여 창의적이면서도 실현 가능한 정책 방안을 도출합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-gray-500">
             <div className="flex items-center gap-2">
               <svg className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

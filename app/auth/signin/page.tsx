@@ -19,7 +19,7 @@ export default function SignInPage({
 
         <div className="space-y-4">
           <p className="text-center text-sm text-gray-600">
-            의왕시 계정으로 로그인해주세요
+            Google 계정으로 로그인해주세요
           </p>
 
           <form
@@ -44,10 +44,6 @@ export default function SignInPage({
               Google 계정으로 로그인
             </button>
           </form>
-
-          <p className="text-center text-xs text-gray-500">
-            @uiwang.go.kr 도메인 계정만 접근 가능합니다
-          </p>
         </div>
       </div>
     </div>
